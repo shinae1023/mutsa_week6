@@ -23,7 +23,6 @@ public class User {
     private String email;
     private String phoneNumber;
     private String address;
-    private Timestamp created_at;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Cart cart;
