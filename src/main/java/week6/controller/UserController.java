@@ -10,7 +10,7 @@ import week6.dto.responseDto.UserResponseDto;
 import week6.entity.User;
 import week6.service.UserService;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
