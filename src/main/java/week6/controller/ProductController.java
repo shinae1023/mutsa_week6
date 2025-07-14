@@ -13,7 +13,7 @@ import week6.service.ProductService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/products")
 public class ProductController {
