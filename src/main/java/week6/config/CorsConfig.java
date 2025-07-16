@@ -17,7 +17,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:3000", "http://localhost:5173",
-                                "https://like-lions-shopping-mall-kappa.vercel.app", "http://mutshop.n-e.kr")
+                                "https://like-lions-shopping-mall-kappa.vercel.app", "http://mutshop.n-e.kr", "https://mutshop.kro.kr")
                         .allowedMethods("GET", "PUT", "POST", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
