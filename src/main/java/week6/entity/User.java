@@ -2,13 +2,17 @@ package week6.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
-//
-//import java.security.Timestamp;
-//import java.util.Collection;
-//import java.util.Collections;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.security.Timestamp;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 @NoArgsConstructor
@@ -16,7 +20,7 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-public class User {
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
@@ -29,6 +33,7 @@ public class User {
     private String phoneNumber;
     private String address;
     private String password;
+    private String email;
 
     private String socialId;
 
@@ -46,15 +51,15 @@ public class User {
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
-//    }
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
+    }
 
-//    @Override
-//    public String getUsername() {
-//        return "";
-//    }
+    @Override
+    public String getUsername() {
+        return "";
+    }
 
     public void updateNickname(String nickname) {
         this.nickname = nickname;
